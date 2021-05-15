@@ -32,7 +32,23 @@ class LinkedList:
     else:
       return -1
 
+  def modify(self, index, data):
+    if self.head == None:
+      return False
+    
+    counter = 1
+    current = self.head
+    if counter == index:
+      current.data = data
 
+    while current.next:
+      current = current.next
+      counter +=1
+      if counter == index:
+        current.data = data
+        return True
+    
+    return False
 
   def length(self):
     if self.head == None:
@@ -49,9 +65,9 @@ class LinkedList:
   def print_nodes(self):
     current = self.head
     
-    if current == None:
-      print('The linked list is empty.')
-    else:
-      for i in range(self.length()):
-        print(f'Node {i}: {current.data}')
-        current = current.next
+    # if current == None:
+    #   print('The linked list is empty.')
+#
+    for i in range(self.length()):
+      print(f'Node {i}: {current.data}')
+      current = current.next
